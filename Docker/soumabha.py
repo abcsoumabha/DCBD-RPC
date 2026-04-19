@@ -62,7 +62,6 @@ def normalize_first_word(title):
 
     first_token = title.split()[0]
 
-    # keep case same, just remove punctuation around the token
     first_token = re.sub(r"^[^\w]+|[^\w]+$", "", first_token, flags=re.UNICODE)
 
     if not first_token:
@@ -187,7 +186,6 @@ def chunkify(items, n_chunks):
 if __name__ == "__main__":
     filenames = [f"pub_{i}.txt" for i in range(1000)]
 
-    # IMPORTANT: use one secret key for both lookup and verify
     secret_key = login(STUDENT_ID)
 
     num_workers = min(8, cpu_count())
